@@ -11,21 +11,25 @@ def create_data():
     """
     # --- ここからルールを記述 ---
 
-    output_data = {}
+    output_data = {
+        '*E': '{^nn^}',  # ん
+        '*U': '{^ltu^}', # っ
+        '*EU': '{^-^}',  # ー
+    }
 
     consonant_list = {
         '':['a','i','u','e','o','ya','yu','yo'],
-        'R': ['ka', 'ki', 'ku', 'ke', 'ko', 'kya', 'kyu', 'kyo'],
-        'W': ['ta', 'ti', 'tu', 'te', 'to', 'tya', 'tyu', 'tyo'],
-        'K': ['na', 'ni', 'nu', 'ne', 'no', 'nya', 'nyu', 'nyo'],
         'S': ['sa', 'si', 'su', 'se', 'so', 'sya', 'syu', 'syo'],
+        'K': ['ta', 'ti', 'tu', 'te', 'to', 'tya', 'tyu', 'tyo'],
+        'W': ['na', 'ni', 'nu', 'ne', 'no', 'nya', 'nyu', 'nyo'],
+        'R': ['ka', 'ki', 'ku', 'ke', 'ko', 'kya', 'kyu', 'kyo'],
         'SK': ['ha', 'hi', 'hu', 'he', 'ho', 'hya', 'hyu', 'hyo'],
         'KW': ['ma', 'mi', 'mu', 'me', 'mo', 'mya', 'myu', 'myo'],
         'WR': ['ra', 'ri', 'ru', 're', 'ro', 'rya', 'ryu', 'ryo'],
-        'SKW': ['ga', 'gi', 'gu', 'ge', 'go', 'gya', 'gyu', 'gyo'],
-        'KWR': ['za', 'zi', 'zu', 'ze', 'zo', 'zya', 'zyu', 'zyo'],
+        'SKW': ['za', 'zi', 'zu', 'ze', 'zo', 'zya', 'zyu', 'zyo'],
+        'KWR': ['ga', 'gi', 'gu', 'ge', 'go', 'gya', 'gyu', 'gyo'],
         'KR': ['da', 'di', 'du', 'de', 'do', 'dya', 'dyu', 'dyo'],
-        'SKR': ['wa', 'wi', 'vu', 'we', 'wo', 'va', 'vu', 'who'],
+        'SKR': ['wa', 'wi', 'nn', 'we', 'wo', 'va', 'vu', 'who'],
         'SR': ['ba', 'bi', 'bu', 'be', 'bo', 'bya', 'byu', 'byo'],
         'SW': ['pa', 'pi', 'pu', 'pe', 'po', 'pya', 'pyu', 'pyo'],
         'SWR': ['la', 'li', 'lu', 'le', 'lo', 'lya', 'lyu', 'lyo'],
@@ -42,20 +46,75 @@ def create_data():
         'BG': 7,  # よ
     }
 
+    # 親指キーの左右の割り当て
+    left_thumb_keys = ['A', 'O']
+    right_thumb_keys = ['E', 'U']    
+
+    # 親指キーによるショートカットの定義
+    # キー: 追加されるローマ字（基本）
+    shortcut_list = {
+        'A': 'ku',  # く
+        'O': 'u',   # う
+        'E': 'nn',   # ん
+        'U': 'ltu', # っ (Ploverで「っ」を入力するための一般的なローマ字)
+        'AO': 'tsu',# つ
+        'EU': '-',  # ー (長音)
+    }
+
     # consonant_list と vowel_list を組み合わせて全パターンの辞書を生成
     # forループを使って、それぞれのリストの組み合わせを一つずつ処理します。
     for c_key, romaji_list in consonant_list.items():
         for v_key, index in vowel_list.items():
             # 新しいキーを作成します。
-            # 子音キー(c_key)が空文字の場合は、母音キー(v_key)だけをキーにします。
-            # それ以外は "子音キー-母音キー" という形式にします。
-            if c_key == '':
-                new_key = v_key
-            else:
-                new_key = f"{c_key}-{v_key}"
+            # 左手キー(c_key)と右手キー(v_key)をハイフンで結合
+            new_key = f"{c_key}-{v_key}"
             
-            # 作成したキーに、対応するローマ字を値として代入します。
-            output_data[new_key] = romaji_list[index]
+            # 対応するローマ字をPlover形式に変換し、作成したキーに値として代入します。
+            base_romaji = romaji_list[index]
+            output_data[new_key] = f"{{^{base_romaji}^}}"
+
+            # --- ショートカットパターンの追加 ---
+            # 基本モーラにショートカットキーを組み合わせたパターンを生成します。
+            for s_key, s_romaji in shortcut_list.items():
+                # --- 「い段」「え段」の特別ルール ---
+                # 不規則リストに基づいてショートカットの内容を変更
+                temp_s_romaji = s_romaji
+                if s_key == 'O': # 「う」のショートカット
+                    if base_romaji.endswith('a'): # 「あ段＋う」→「あ段＋い」
+                        temp_s_romaji = 'i'
+                    elif base_romaji.endswith('i'): # 「い段＋う」→「い段＋い」
+                        temp_s_romaji = 'i'
+                    elif base_romaji.endswith('e'): # 「え段＋う」→「え段＋い」
+                        temp_s_romaji = 'i'
+                    elif base_romaji.endswith('ya'): # 「や段＋う」→「や段＋あ」
+                        temp_s_romaji = 'a'
+                elif s_key == 'A': # 「く」のショートカット
+                    if base_romaji.endswith('i'): # 「い段＋く」→「い段＋き」
+                        temp_s_romaji = 'ki'
+                    elif base_romaji.endswith('e'): # 「え段＋く」→「え段＋き」
+                        temp_s_romaji = 'ki'
+                
+                combined_romaji = base_romaji + temp_s_romaji
+                
+                # --- キーの左右振り分け ---
+                left_consonant_keys = c_key
+                left_thumb_part = ""
+                right_thumb_part = ""
+                right_vowel_keys = v_key
+
+                # ショートカットキーの各文字をチェックして左右に振り分け
+                for char in s_key:
+                    if char in left_thumb_keys:
+                        left_thumb_part += char
+                    elif char in right_thumb_keys:
+                        right_thumb_part += char
+                    else: # RB, GSなどの場合
+                        right_vowel_keys += char
+                
+                # 左右のキーを結合してショートカットキーを生成
+                shortcut_key = f"{left_consonant_keys}{left_thumb_part}-{right_thumb_part}{right_vowel_keys}"
+                if shortcut_key not in output_data: # 重複を避ける
+                    output_data[shortcut_key] = f"{{^{combined_romaji}^}}"
 
     # --- ここまでルールを記述 ---
     return output_data
