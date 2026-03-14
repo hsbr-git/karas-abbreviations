@@ -1,1 +1,11 @@
 output/
+.DS_Store
+__pycache__/
+.vscode/
+.env
+src/__pycache__/
+src/conjugators/__pycache__/
+src/generator.py
+kihon.py
+karas_command.json
+verb.json
