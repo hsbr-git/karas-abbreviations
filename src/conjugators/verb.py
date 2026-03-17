@@ -17,9 +17,6 @@ class VerbConjugator:
             return None
 
         base_key = instr.get("base")
-        # Support kahen override for base if defined
-        if klass == "kahen" and "kahen_base" in instr:
-             base_key = instr["kahen_base"]
         
         base_form = r.get(base_key)
         if not base_form:

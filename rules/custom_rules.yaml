@@ -89,8 +89,3 @@ tables:
 
   i_adj: {mizen: 'karo', renyo: 'ku', renyo2: 'kaltu', shushi: 'i', katei: 'kere'}
   nai_adj: {mizen: 'nakaro', renyo: 'naku', renyo2: 'nakaltu', shushi: 'nai', katei: 'nakere'}
-
-
-
-phrase_patterns:
-  # Examples of hardcoded direct string phrases could go here
