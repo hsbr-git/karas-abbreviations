@@ -8,7 +8,6 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')
 
 from src.conjugators.verb import VerbConjugator
 from src.conjugators.adjective import AdjectiveConjugator
-from src.conjugators.phrase import PhraseConjugator
 
 LEFT_THUMB_KEYS = ['A', 'O']
 RIGHT_THUMB_KEYS = ['E', 'U']
@@ -37,13 +36,11 @@ def generate_dictionary():
     # Initialize conjugators
     verb_conjugator = VerbConjugator(LEFT_THUMB_KEYS, RIGHT_THUMB_KEYS)
     adj_conjugator = AdjectiveConjugator(LEFT_THUMB_KEYS, RIGHT_THUMB_KEYS)
-    phrase_conjugator = PhraseConjugator(LEFT_THUMB_KEYS, RIGHT_THUMB_KEYS)
 
     # Dictionary mapping type to conjugator instance
     conjugators = {
         'verb': verb_conjugator,
         'adj': adj_conjugator,
-        'phrase': phrase_conjugator,
     }
 
     # 1. Process regular verb rows based on left_to_row
