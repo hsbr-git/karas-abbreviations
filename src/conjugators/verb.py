@@ -17,6 +17,11 @@ class VerbConjugator:
             return None
 
         base_key = instr.get("base")
+        if not base_key:
+            return None
+
+        if base_key == "{onbin/renyo}":
+            base_key = "onbin" if klass == "godan" else "renyo"
         
         base_form = r.get(base_key)
         if not base_form:
@@ -41,10 +46,10 @@ class VerbConjugator:
 
     def _resolve_suffix(self, suffix: str, row_key: str, klass: str) -> str:
         if "{te/de}" in suffix:
-            replacement = "de" if row_key in ("g", "b", "n", "m") else "te"
+            replacement = "de" if klass == "godan" and row_key in ("g", "b", "n", "m") else "te"
             suffix = suffix.replace("{te/de}", replacement)
         if "{ta/da}" in suffix:
-            replacement = "da" if row_key in ("g", "b", "n", "m") else "ta"
+            replacement = "da" if klass == "godan" and row_key in ("g", "b", "n", "m") else "ta"
             suffix = suffix.replace("{ta/da}", replacement)
         if "{u/you}" in suffix:
             replacement = "you" if klass in ("kami_ichidan", "shimo_ichidan", "sahen", "kahen") else "u"

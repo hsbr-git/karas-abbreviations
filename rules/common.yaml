@@ -24,7 +24,7 @@ right_suffix_to_class:
 thumb_actions:
   A:  
     kind: te
-    verb: {base: onbin, suffix: "{te/de}"}
+    verb: {base: "{onbin/renyo}", suffix: "{te/de}"}
     adj:  {base: renyo, suffix: "te"}
   O:  
     kind: shushi
@@ -36,7 +36,7 @@ thumb_actions:
     adj:  {base: renyo, suffix: "nai"}
   U:  
     kind: ta
-    verb: {base: onbin, suffix: "{ta/da}"}
+    verb: {base: "{onbin/renyo}", suffix: "{ta/da}"}
     adj:  {base: renyo2, suffix: "ta"}
   EU: 
     kind: nakatta
