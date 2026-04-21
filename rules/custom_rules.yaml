@@ -2,90 +2,108 @@
 
 custom_entries:
 #右手がBSのストローク群
-  - {left_stroke: 'S', right_stroke: 'BS', stem: 'kamosire', row: '', class: 'nai_adj', type: 'adj', allowed_kinds: ['shushi', 'masu', 'ta', 'mashita']} # かもしれない
- # - {left_stroke: '', right_stroke: 'BS', stem: 'haya', row: '', class: 'i_adj', type: 'adj'} # 早い
   - {left_stroke: '', right_stroke: 'BS', stem: '', row: '', class: 'nai_adj', type: 'adj'} # ない
   - {left_stroke: 'R', right_stroke: 'BS', stem: 'haike', row: '', class: 'nai_adj', type: 'adj', allowed_kinds: ['shushi', 'masu', 'ta', 'mashita']} # はいけない
+  - {left_stroke: 'S', right_stroke: 'BS', stem: 'kamosire', row: '', class: 'nai_adj', type: 'adj', allowed_kinds: ['shushi', 'masu', 'ta', 'mashita']} # かもしれない
+  - {left_stroke: 'W', right_stroke: 'BS', stem: 'no', row: '', class: 'desu_auxiliary', type: 'auxiliary'} #のです
   - {left_stroke: 'SK', right_stroke: 'BS', stem: 'hosi', row: '', class: 'i_adj', type: 'adj'} # ほしい
   - {left_stroke: 'KW', right_stroke: 'BS', stem: 'moi', row: '', class: 'i_adj', type: 'adj'} # もいい
   - {left_stroke: 'WR', right_stroke: 'BS', stem: 'rasi', row: '', class: 'i_adj', type: 'adj'} # らしい
-  - {left_stroke: 'KWR', right_stroke: 'BS', stem: 'nitigai', row: '', class: 'nai_adj', type: 'adj', allowed_kinds: ['shushi', 'masu', 'ta', 'mashita']} # にちがいない
+  - {left_stroke: 'KWR', right_stroke: 'BS', stem: 'nitigai', row: '', class: 'nai_adj', type: 'adj', allowed_kinds: ['shushi', 'masu', 'ta', 'mashita']} # にちがいな
+  - {left_stroke: 'SKR', right_stroke: 'BS', stem: 'nn', row: '', class: 'desu_auxiliary', type: 'auxiliary'} #んです
 
-#右手で何も押さない
-  - {left_stroke: 'R', right_stroke: '', stem: '', row: 'k', class: 'kahen', type: 'verb'} #k くる
-  - {left_stroke: 'S', right_stroke: '', stem: 'sa', row: 's', class: 'shimo_ichidan', type: 'verb'} #s させる
+#右手で何も押さないストローク群
+  - {left_stroke: 'R', right_stroke: '', stem: '', row: 'k', class: 'kahen', type: 'verb'} #くる
+  - {left_stroke: 'S', right_stroke: '', stem: '', row: 's', class: 'sahen', type: 'verb'} #する
   - {left_stroke: 'K', right_stroke: '', stem: 'ta', row: '', class: 'i_adj', type: 'adj'} #t たい
   - {left_stroke: 'W', right_stroke: '', stem: 'na', row: 'r', class: 'godan', type: 'verb'} #n なる
-  #SK: {left_stroke: 'SK', right_stroke: '', stem: 'hazu', row: 'h', class: 'godan', type: 'verb'} #h
+  - {left_stroke: 'SK', right_stroke: '', stem: 'hazu', row: '', class: 'da_auxiliary', type: 'auxiliary'} #h はずだ
   - {left_stroke: 'KW', right_stroke: '', stem: 'omo', row: 'w', class: 'godan', type: 'verb'} #m 思う
   - {left_stroke: 'WR', right_stroke: '', stem: 'ra', row: 'r', class: 'shimo_ichidan', type: 'verb'} #r られる
+  - {left_stroke: 'KR', right_stroke: '', stem: '', row: '', class: 'da_auxiliary', type: 'auxiliary'} # だ
+  - {left_stroke: 'SR', right_stroke: '', stem: 'beki', row: '', class: 'da_auxiliary', type: 'auxiliary'} # べきだ
+  - {left_stroke: 'SKR', right_stroke: '', stem: 'waka', row: 'r', class: 'godan', type: 'verb'} # わかる
+  
 
-# 右手が「する」と同じストローク群
-  - {left_stroke: '', right_stroke: 'GS', stem: '', row: 's', class: 'sahen', type: 'verb'} #する
-  - {left_stroke: 'R', right_stroke: 'GS', stem: 'i', row: 'k', class: 'godan', type: 'verb'} #いく
+  
+
+# 右手が'GS'のストローク群
+  - {left_stroke: '', right_stroke: 'GS', stem: 'i', row: 'k', class: 'godan', type: 'verb'} #いく
+  - {left_stroke: 'R', right_stroke: 'GS', stem: 'o', row: 'k', class: 'godan', type: 'verb'} #おく
   - {left_stroke: 'S', right_stroke: 'GS', stem: 'sima', row: 'w', class: 'godan', type: 'verb'} #しまう
   - {left_stroke: 'K', right_stroke: 'GS', stem: 'tya', row: 'w', class: 'godan', type: 'verb'} #ちゃう
-  - {left_stroke: 'W', right_stroke: 'GS', stem: 'o', row: 'k', class: 'godan', type: 'verb'} #おく
+  - {left_stroke: 'W', right_stroke: 'GS', stem: 'no', row: '', class: 'da_auxiliary', type: 'auxiliary'} #のだ
   - {left_stroke: 'KW', right_stroke: 'GS', stem: 'mora', row: 'w', class: 'godan', type: 'verb'} #もらう
   - {left_stroke: 'WR', right_stroke: 'GS', stem: 'ku', row: 'r', class: 'shimo_ichidan', type: 'verb'} #くれる
   - {left_stroke: 'KWR', right_stroke: 'GS', stem: 'a', row: 'g', class: 'shimo_ichidan', type: 'verb'} #あげる
   - {left_stroke: 'SKW', right_stroke: 'GS', stem: 'zya', row: 'w', class: 'godan', type: 'verb'} #じゃう
 
 # 右手が五段動詞と同じストローク群
-  - {left_stroke: '', right_stroke: 'BGS', stem: 'a', row: 'r', class: 'godan', type: 'verb'} #ある
+  - {left_stroke: '', right_stroke: 'BGS', stem: '', row: '', class: 'desu_auxiliary', type: 'auxiliary'} # です
+  
 
 # 右手が上一段と同じストローク群
+  - {left_stroke: 'S', right_stroke: 'RGS', stem: 'sa', row: 's', class: 'shimo_ichidan', type: 'verb'} # させる
   - {left_stroke: 'KR', right_stroke: 'RGS', stem: 'de', row: 'k', class: 'kami_ichidan', type: 'verb'} #できる
 
 # 右手が'RS'のストローク群
+  - {left_stroke: '', right_stroke: 'RS', stem: 'a', row: 'r', class: 'godan', type: 'verb'} #ある
+  - {left_stroke: 'S', right_stroke: 'RS', stem: 'sa', row: 'r', class: 'shimo_ichidan', type: 'verb'} #される
+  - {left_stroke: 'W', right_stroke: 'RS', stem: 'nodea', row: 'r', class: 'godan', type: 'verb'} #のである
   - {left_stroke: 'KW', right_stroke: 'RS', stem: 'itada', row: 'k', class: 'godan', type: 'verb'} #いただく
   - {left_stroke: 'WR', right_stroke: 'RS', stem: 'kudasa', row: 'r', class: 'godan', type: 'verb'} #くださる
   - {left_stroke: 'KWR', right_stroke: 'RS', stem: 'sasia', row: 'g', class: 'shimo_ichidan', type: 'verb'} #さしあげる
-  - {left_stroke: 'SKR', right_stroke: 'RS', stem: 'ya', row: 'r', class: 'godan', type: 'verb'} #やる
+  - {left_stroke: 'KR', right_stroke: 'RS', stem: 'dea', row: 'r', class: 'godan', type: 'verb'} #である
+  
+
+  
 
 tables:
   godan:
-    k: {mizen: 'ka', renyo: 'ki', onbin: 'i', shushi: 'ku', katei: 'ke', meirei: 'ke', ikou: 'ko'}
-    s: {mizen: 'sa', renyo: 'si', onbin: 'si', shushi: 'su', katei: 'se', meirei: 'se', ikou: 'so'}
-    t: {mizen: 'ta', renyo: 'ti', onbin: 'ltu', shushi: 'tu', katei: 'te', meirei: 'te', ikou: 'to'} 
-    n: {mizen: 'na', renyo: 'ni', onbin: 'nn',  shushi: 'nu', katei: 'ne', meirei: 'ne', ikou: 'no'}
-    m: {mizen: 'ma', renyo: 'mi', onbin: 'nn',  shushi: 'mu', katei: 'me', meirei: 'me', ikou: 'mo'}
-    r: {mizen: 'ra', renyo: 'ri', onbin: 'ltu', shushi: 'ru', katei: 're', meirei: 're', ikou: 'ro'}
-    g: {mizen: 'ga', renyo: 'gi', onbin: 'i',  shushi: 'gu', katei: 'ge', meirei: 'ge', ikou: 'go'}
-    b: {mizen: 'ba', renyo: 'bi', onbin: 'nn',  shushi: 'bu', katei: 'be', meirei: 'be', ikou: 'bo'}
-    w: {mizen: 'wa', renyo: 'i',  onbin: 'ltu', shushi: 'u',  katei: 'e',  meirei: 'e',  ikou: 'o'}
+    k: {mizen: 'ka', renyo: 'ki', onbin: 'i', shushi: 'ku', rentai: 'ku', katei: 'ke', meirei: 'ke', ikou: 'ko'}
+    s: {mizen: 'sa', renyo: 'si', onbin: 'si', shushi: 'su', rentai: 'su', katei: 'se', meirei: 'se', ikou: 'so'}
+    t: {mizen: 'ta', renyo: 'ti', onbin: 'ltu', shushi: 'tu', rentai: 'tu', katei: 'te', meirei: 'te', ikou: 'to'} 
+    n: {mizen: 'na', renyo: 'ni', onbin: 'nn',  shushi: 'nu', rentai: 'nu', katei: 'ne', meirei: 'ne', ikou: 'no'}
+    m: {mizen: 'ma', renyo: 'mi', onbin: 'nn',  shushi: 'mu', rentai: 'mu', katei: 'me', meirei: 'me', ikou: 'mo'}
+    r: {mizen: 'ra', renyo: 'ri', onbin: 'ltu', shushi: 'ru', rentai: 'ru', katei: 're', meirei: 're', ikou: 'ro'}
+    g: {mizen: 'ga', renyo: 'gi', onbin: 'i',  shushi: 'gu', rentai: 'gu', katei: 'ge', meirei: 'ge', ikou: 'go'}
+    b: {mizen: 'ba', renyo: 'bi', onbin: 'nn',  shushi: 'bu', rentai: 'bu', katei: 'be', meirei: 'be', ikou: 'bo'}
+    w: {mizen: 'wa', renyo: 'i',  onbin: 'ltu', shushi: 'u',  rentai: 'u',  katei: 'e',  meirei: 'e',  ikou: 'o'}
 
   kami_ichidan:
-    "": {renyo: 'i',  shushi: 'iru',  katei: 'ire', meirei: 'iro', ikou: 'i'}
-    k: {renyo: 'ki', shushi: 'kiru', katei: 'kire', meirei: 'kiro', ikou: 'ki'}
-    t: {renyo: 'ti', shushi: 'tiru', katei: 'tire', meirei: 'tiro', ikou: 'ti'}
-    n: {renyo: 'ni', shushi: 'niru', katei: 'nire', meirei: 'niro', ikou: 'ni'}
-    h: {renyo: 'hi', shushi: 'hiru', katei: 'hire', meirei: 'hiro', ikou: 'hi'}
-    m: {renyo: 'mi', shushi: 'miru', katei: 'mire', meirei: 'miro', ikou: 'mi'}
-    r: {renyo: 'ri', shushi: 'riru', katei: 'rire', meirei: 'riro', ikou: 'ri'}
-    g: {renyo: 'gi', shushi: 'giru', katei: 'gire', meirei: 'giro', ikou: 'gi'}
-    z: {renyo: 'zi', shushi: 'ziru', katei: 'zire', meirei: 'ziro', ikou: 'zi'}
-    b: {renyo: 'bi', shushi: 'biru', katei: 'bire', meirei: 'biro', ikou: 'bi'}
+    "": {mizen: 'i', renyo: 'i', onbin: 'i', shushi: 'iru', rentai: 'iru', katei: 'ire', meirei: 'iro', ikou: 'i'}
+    k: {mizen: 'ki', renyo: 'ki', onbin: 'ki', shushi: 'kiru', rentai: 'kiru', katei: 'kire', meirei: 'kiro', ikou: 'ki'}
+    t: {mizen: 'ti', renyo: 'ti', onbin: 'ti', shushi: 'tiru', rentai: 'tiru', katei: 'tire', meirei: 'tiro', ikou: 'ti'}
+    n: {mizen: 'ni', renyo: 'ni', onbin: 'ni', shushi: 'niru', rentai: 'niru', katei: 'nire', meirei: 'niro', ikou: 'ni'}
+    h: {mizen: 'hi', renyo: 'hi', onbin: 'hi', shushi: 'hiru', rentai: 'hiru', katei: 'hire', meirei: 'hiro', ikou: 'hi'}
+    m: {mizen: 'mi', renyo: 'mi', onbin: 'mi', shushi: 'miru', rentai: 'miru', katei: 'mire', meirei: 'miro', ikou: 'mi'}
+    r: {mizen: 'ri', renyo: 'ri', onbin: 'ri', shushi: 'riru', rentai: 'riru', katei: 'rire', meirei: 'riro', ikou: 'ri'}
+    g: {mizen: 'gi', renyo: 'gi', onbin: 'gi', shushi: 'giru', rentai: 'giru', katei: 'gire', meirei: 'giro', ikou: 'gi'}
+    z: {mizen: 'zi', renyo: 'zi', onbin: 'zi', shushi: 'ziru', rentai: 'ziru', katei: 'zire', meirei: 'ziro', ikou: 'zi'}
+    b: {mizen: 'bi', renyo: 'bi', onbin: 'bi', shushi: 'biru', rentai: 'biru', katei: 'bire', meirei: 'biro', ikou: 'bi'}
 
   shimo_ichidan:
-    "":  {renyo: 'e',  shushi: 'eru',  katei: 'ere', meirei: 'ero', ikou: 'e'}
-    k: {renyo: 'ke', shushi: 'keru', katei: 'kere', meirei: 'kero', ikou: 'ke'}
-    s: {renyo: 'se', shushi: 'seru', katei: 'sere', meirei: 'sero', ikou: 'se'}
-    t: {renyo: 'te', shushi: 'teru', katei: 'tere', meirei: 'tero', ikou: 'te'}
-    n: {renyo: 'ne', shushi: 'neru', katei: 'nere', meirei: 'nero', ikou: 'ne'}
-    h: {renyo: 'he', shushi: 'heru', katei: 'here', meirei: 'hero', ikou: 'he'}
-    m: {renyo: 'me', shushi: 'meru', katei: 'mere', meirei: 'mero', ikou: 'me'}
-    r: {renyo: 're', shushi: 'reru', katei: 'rere', meirei: 'rero', ikou: 're'}
-    g: {renyo: 'ge', shushi: 'geru', katei: 'gere', meirei: 'gero', ikou: 'ge'}
-    z: {renyo: 'ze', shushi: 'zeru', katei: 'zere', meirei: 'zero', ikou: 'ze'}
-    d: {renyo: 'de', shushi: 'deru', katei: 'dere', meirei: 'dero', ikou: 'de'}
-    b: {renyo: 'be', shushi: 'beru', katei: 'bere', meirei: 'bero', ikou: 'be'}
+    "":  {mizen: 'e', renyo: 'e', onbin: 'e', shushi: 'eru', rentai: 'eru', katei: 'ere', meirei: 'ero', ikou: 'e'}
+    k: {mizen: 'ke', renyo: 'ke', onbin: 'ke', shushi: 'keru', rentai: 'keru', katei: 'kere', meirei: 'kero', ikou: 'ke'}
+    s: {mizen: 'se', renyo: 'se', onbin: 'se', shushi: 'seru', rentai: 'seru', katei: 'sere', meirei: 'sero', ikou: 'se'}
+    t: {mizen: 'te', renyo: 'te', onbin: 'te', shushi: 'teru', rentai: 'teru', katei: 'tere', meirei: 'tero', ikou: 'te'}
+    n: {mizen: 'ne', renyo: 'ne', onbin: 'ne', shushi: 'neru', rentai: 'neru', katei: 'nere', meirei: 'nero', ikou: 'ne'}
+    h: {mizen: 'he', renyo: 'he', onbin: 'he', shushi: 'heru', rentai: 'heru', katei: 'here', meirei: 'hero', ikou: 'he'}
+    m: {mizen: 'me', renyo: 'me', onbin: 'me', shushi: 'meru', rentai: 'meru', katei: 'mere', meirei: 'mero', ikou: 'me'}
+    r: {mizen: 're', renyo: 're', onbin: 're', shushi: 'reru', rentai: 'reru', katei: 'rere', meirei: 'rero', ikou: 're'}
+    g: {mizen: 'ge', renyo: 'ge', onbin: 'ge', shushi: 'geru', rentai: 'geru', katei: 'gere', meirei: 'gero', ikou: 'ge'}
+    z: {mizen: 'ze', renyo: 'ze', onbin: 'ze', shushi: 'zeru', rentai: 'zeru', katei: 'zere', meirei: 'zero', ikou: 'ze'}
+    d: {mizen: 'de', renyo: 'de', onbin: 'de', shushi: 'deru', rentai: 'deru', katei: 'dere', meirei: 'dero', ikou: 'de'}
+    b: {mizen: 'be', renyo: 'be', onbin: 'be', shushi: 'beru', rentai: 'beru', katei: 'bere', meirei: 'bero', ikou: 'be'}
 
   sahen:
-    s: {mizen: 'si', renyo: 'si', shushi: 'suru', katei: 'sure', meirei: 'siro', ikou: 'si'}
+    s: {mizen: 'si', renyo: 'si', onbin: 'si', shushi: 'suru', rentai: 'suru', katei: 'sure', meirei: 'siro', ikou: 'si'}
 
   kahen:
-    k: {mizen: 'ko', renyo: 'ki', shushi: 'kuru', katei: 'kure', meirei: 'koi', ikou: 'ko'}
+    k: {mizen: 'ko', renyo: 'ki', onbin: 'ki', shushi: 'kuru', rentai: 'kuru', katei: 'kure', meirei: 'koi', ikou: 'ko'}
 
   i_adj: {mizen: 'karo', renyo: 'ku', renyo2: 'kaltu', shushi: 'i', katei: 'kere'}
   nai_adj: {mizen: 'nakaro', renyo: 'naku', renyo2: 'nakaltu', shushi: 'nai', katei: 'nakere'}
+  
+  da_auxiliary: {mizen: 'daro', renyo: 'de',renyo2: 'daltu',renyo3: 'ni', shushi: 'da', rentai: 'na', katei: 'nara'} # 助動詞「だ」
+  desu_auxiliary: {mizen: 'desyo', renyo: 'desi', shushi: 'desu', rentai: 'desu'} # 助動詞「です」

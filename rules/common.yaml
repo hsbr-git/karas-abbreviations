@@ -24,40 +24,68 @@ right_suffix_to_class:
 thumb_actions:
   A:  
     kind: te
-    verb: {base: "{onbin/renyo}", suffix: "{te/de}"}
+    verb: {base: onbin, suffix: "{te/de}"}
     adj:  {base: renyo, suffix: "te"}
+    auxiliary:
+      da_auxiliary: {base: renyo, suffix: ""}
+      desu_auxiliary: {base: renyo, suffix: "te"}
   O:  
     kind: shushi
     verb: {base: shushi, suffix: ""}
     adj:  {base: shushi, suffix: ""}
+    auxiliary:
+      da_auxiliary: {base: shushi, suffix: ""}
+      desu_auxiliary: {base: shushi, suffix: ""}
   E:  
     kind: nai
     verb: {base: mizen, suffix: "nai"}
     adj:  {base: renyo, suffix: "nai"}
+    auxiliary:
+      da_auxiliary: {base: renyo, suffix: "nai"}
+      #desu_auxiliary: {base: mizen, suffix: "nai"}
   U:  
     kind: ta
-    verb: {base: "{onbin/renyo}", suffix: "{ta/da}"}
+    verb: {base: onbin, suffix: "{ta/da}"}
     adj:  {base: renyo2, suffix: "ta"}
+    auxiliary:
+      da_auxiliary: {base: renyo2, suffix: "ta"}
+      desu_auxiliary: {base: renyo, suffix: "ta"}
   EU: 
     kind: nakatta
     verb: {base: mizen, suffix: "nakatta"}
     adj:  {base: renyo, suffix: "nakaltuta"}
+    auxiliary:
+      da_auxiliary: {base: renyo, suffix: "nakatta"}
+      #desu_auxiliary: {base: renyo, suffix: "nakatta"}
   AO: 
     kind: masu
     verb: {base: renyo, suffix: "masu"}
     adj:  {base: shushi, suffix: "desu", nai_adj_suffix: "masenn"}
+    auxiliary:
+      da_auxiliary: {base: shushi, suffix: "."} #だ。
+      desu_auxiliary: {base: shushi, suffix: "."} #です。
+
   AE: 
     kind: masen
     verb: {base: renyo, suffix: "masenn"}
     adj:  {base: renyo, suffix: "arimasenn", nai_adj_suffix: "masenn"}
+    auxiliary:
+      da_auxiliary: {base: shushi, suffix: "ga"} #だが
+      desu_auxiliary: {base: shushi, suffix: "ga"} #ですが
   AU: 
     kind: mashita
     verb: {base: renyo, suffix: "mashita"}
     adj:  {base: renyo2, suffix: "tadesu", nai_adj_suffix: "masendeshita"}
+    auxiliary:
+      da_auxiliary: {base: mizen, suffix: "u"} #だろう
+      desu_auxiliary: {base: mizen, suffix: "u"} #でしょう
   AEU: 
     kind: masendeshita
     verb: {base: renyo, suffix: "masendeshita"}
     adj:  {base: renyo, suffix: "arimasendeshita", nai_adj_suffix: "masendeshita"}
+    auxiliary:
+      da_auxiliary: {base: rentai, suffix: "noka"} #なのか
+      desu_auxiliary: {base: shushi, suffix: "ka"} #ですか
   OE: 
     kind: ikou
     verb: {base: ikou, suffix: "{u/you}"}
@@ -66,6 +94,9 @@ thumb_actions:
     kind: renyo
     verb: {base: renyo, suffix: ""}
     adj:  {base: renyo, suffix: ""}
+    auxiliary:
+      da_auxiliary: {base: renyo, suffix: "ha"}
+      desu_auxiliary: {base: renyo, suffix: ""}
   AOU: 
     kind: meirei
     verb: {base: meirei, suffix: ""}
@@ -74,7 +105,13 @@ thumb_actions:
     kind: katei
     verb: {base: katei, suffix: "ba"}
     adj:  {base: katei, suffix: "ba"}
+    auxiliary:
+      da_auxiliary: {base: katei, suffix: ""}
+      #desu_auxiliary: {base: katei, suffix: ""}
   EOU: 
     kind: mizen
     verb: {base: mizen, suffix: ""}
     adj:  {base: mizen, suffix: ""}
+    auxiliary:
+      da_auxiliary: {base: mizen, suffix: ""}
+      desu_auxiliary: {base: mizen, suffix: ""}
