@@ -8,6 +8,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')
 
 from src.conjugators.verb import VerbConjugator
 from src.conjugators.adjective import AdjectiveConjugator
+from src.conjugators.auxiliary import AuxiliaryConjugator
 
 LEFT_THUMB_KEYS = ['A', 'O']
 RIGHT_THUMB_KEYS = ['E', 'U']
@@ -36,11 +37,13 @@ def generate_dictionary():
     # Initialize conjugators
     verb_conjugator = VerbConjugator(LEFT_THUMB_KEYS, RIGHT_THUMB_KEYS)
     adj_conjugator = AdjectiveConjugator(LEFT_THUMB_KEYS, RIGHT_THUMB_KEYS)
+    aux_conjugator = AuxiliaryConjugator(LEFT_THUMB_KEYS, RIGHT_THUMB_KEYS)
 
     # Dictionary mapping type to conjugator instance
     conjugators = {
         'verb': verb_conjugator,
         'adj': adj_conjugator,
+        'auxiliary': aux_conjugator,
     }
 
     # 1. Process regular verb rows based on left_to_row
@@ -96,6 +99,16 @@ def generate_dictionary():
         
         elif entry_type == 'adj':
             # Adjectives might not depend on a 'row' or 't_klass' from verb tables (adj tables not needed yet)
+            for thumb_chord, action in thumb_actions.items():
+                if allowed is not None and action["kind"] not in allowed:
+                    continue
+                romaji = conjugator.conjugate(action, row, klass, all_tables, stem=stem)
+                if not romaji:
+                    continue
+                stroke = conjugator.build_stroke_key(left_stroke, thumb_chord, right_stroke)
+                output_data[stroke] = f"{{^{romaji}^}}"
+
+        elif entry_type == 'auxiliary':
             for thumb_chord, action in thumb_actions.items():
                 if allowed is not None and action["kind"] not in allowed:
                     continue

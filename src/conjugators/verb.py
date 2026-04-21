@@ -19,9 +19,6 @@ class VerbConjugator:
         base_key = instr.get("base")
         if not base_key:
             return None
-
-        if base_key == "{onbin/renyo}":
-            base_key = "onbin" if klass == "godan" else "renyo"
         
         base_form = r.get(base_key)
         if not base_form:

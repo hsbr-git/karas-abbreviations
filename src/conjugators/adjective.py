@@ -48,3 +48,4 @@ class AdjectiveConjugator:
             else:
                 raise ValueError(f"Unexpected thumb char: {ch}")
         return f"{left_consonant}{''.join(left_thumb_part)}-{''.join(right_thumb_part)}{right_stroke}"
+
