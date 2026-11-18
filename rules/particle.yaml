@@ -1,0 +1,52 @@
+first_particles:
+  # 一文字目（列）
+  # 助詞の頭文字の基本音節ストローク（親指なし）を仮割り当て
+  no:  { text: "no", stroke: "W-G" }
+  to:  { text: "to", stroke: "K-G" }
+  de:  { text: "de", stroke: "KR-S" }
+  ni:  { text: "ni", stroke: "W-B" }
+  wo:  { text: "wo", stroke: "SKR-G" }
+  he:  { text: "he", stroke: "SK-S" }
+  te:  { text: "te", stroke: "K-S" }
+  da:  { text: "dake", stroke: "KR-R" }
+  ka:  { text: "kara", stroke: "R-R" }
+  na:  { text: "nado", stroke: "W-R" }
+  ma:  { text: "made", stroke: "KW-R" }
+  #ku:  { text: "kurai", stroke: "R-R" }
+  #ba:  { text: "bakari", stroke: "SR-R" }
+  #ke:  { text: "kedo", stroke: "R-S" }
+  #na2: { text: "nannka", stroke: "W-R" }
+  #no2: { text: "noyou", stroke: "W-G" }
+  #yo:  { text: "yori", stroke: "-RB" }
+
+second_particles:
+  # 二文字目（行）かつ一文字助詞の定義
+  # kihon.py で未使用の親指ストロークを仮割り当て（重複は許容）
+  ga: { text: "ga", stroke: "AE" }
+  wo: { text: "wo", stroke: "AU" }
+  de: { text: "de", stroke: "OE" }
+  ha: { text: "ha", stroke: "OU" }
+  mo: { text: "mo", stroke: "AOE" }
+  ni: { text: "ni", stroke: "AEU" }
+  no: { text: "no", stroke: "AOU" }
+
+matrix:
+  # 行に対して、生成対象の列IDを並べる
+  ga: [no, to, da, ka, na, ma, ku, ba, na2]
+  wo: [no, to, da, ka, na, ma, ku, ba, na2]
+  de: [no, to, da, ka, na, ma, ku, ba, na2, no2]
+  ha: [no, to, de, ni, he, te, da, ka, na, ma, ku, ba, na2, yo]
+  mo: [no, to, de, ni, wo, he, te, da, ka, na, ma, ku, ba, ke, na2, yo]
+  ni: [no, da, ka, na, ma, ku, ba, na2, no2]
+  no: [to, de, he, da, ka, na, ma, ku, ba, na2]
+
+overrides:
+  # 必要があればセル単位で text / stroke を上書き
+  # "de:no2": { text: "noyoude" }
+  # "ni:no2": { text: "noyouni" }
+  # "ha:yo":  { text: "yoriha" }
+  # "mo:yo":  { text: "yorimo" }
+
+additional_entries:
+  # 規則外や臨時で足したいもの
+  # - { stroke: "P-EXTRA", text: "toka" }
