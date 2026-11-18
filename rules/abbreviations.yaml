@@ -1,0 +1,59 @@
+entries:
+  # 直接ストローク指定
+  # - { stroke: "R", text: "koto" }
+
+  # 左手単打
+  - { left_stroke: "R", thumb_chord: "", right_stroke: "", text: "koto" }   # こと
+  #- { left_stroke: "S", thumb_chord: "", right_stroke: "", text: "ima" }   # いま
+  - { left_stroke: "K", thumb_chord: "", right_stroke: "", text: "toki" }   # とき
+  - { left_stroke: "W", thumb_chord: "", right_stroke: "", text: "nani" }   # なに
+  - { left_stroke: "KW", thumb_chord: "", right_stroke: "", text: "mono" }   # もの
+  - { left_stroke: "SK", thumb_chord: "", right_stroke: "", text: "hito" }   # ひと
+  #- { left_stroke: "WR", thumb_chord: "", right_stroke: "", text: "" }   # 
+  #- { left_stroke: "KWR", thumb_chord: "", right_stroke: "", text: "" }   # 
+  #- { left_stroke: "SKW", thumb_chord: "", right_stroke: "", text: "" }   # 
+  #- { left_stroke: "SWR", thumb_chord: "", right_stroke: "", text: "" }   # 
+  - { left_stroke: "KR", thumb_chord: "", right_stroke: "", text: "tokoro" }   # ところ
+  - { left_stroke: "SR", thumb_chord: "", right_stroke: "", text: "baai" }   # ばあい
+  #- { left_stroke: "SKR", thumb_chord: "", right_stroke: "", text: "hito" }   # 
+  #- { left_stroke: "SWR", thumb_chord: "", right_stroke: "", text: "hito" }   # 
+  #- { left_stroke: "SWR", thumb_chord: "", right_stroke: "", text: "hito" }   # 
+
+
+
+# こと+助詞
+#  - { left_stroke: "R", thumb_chord: "OU", right_stroke: "", text: "kotoha" }   # ことは
+#  - { left_stroke: "R", thumb_chord: "AE", right_stroke: "", text: "kotoga" }   # ことが
+#  - { left_stroke: "R", thumb_chord: "OE", right_stroke: "", text: "kotoni" }   # ことに
+#  - { left_stroke: "R", thumb_chord: "AU", right_stroke: "", text: "kotowo" }   # ことを
+
+# こそあど
+  - { left_stroke: "", thumb_chord: "", right_stroke: "GS", text: "are" }   #あれ
+  - { left_stroke: "", thumb_chord: "", right_stroke: "BGS", text: "ano" }   #あの
+  - { left_stroke: "", thumb_chord: "", right_stroke: "RGS", text: "annna" }   #あんな
+  - { left_stroke: "", thumb_chord: "", right_stroke: "RBS", text: "atira" }   #あちら
+  - { left_stroke: "", thumb_chord: "", right_stroke: "RS", text: "asoko" }   #あそこ
+  - { left_stroke: "", thumb_chord: "", right_stroke: "BS", text: "altuti" }   #あっち
+
+
+  - { left_stroke: "R", thumb_chord: "", right_stroke: "GS", text: "kore" }   #これ
+  - { left_stroke: "R", thumb_chord: "", right_stroke: "BGS", text: "kono" }   #この
+  - { left_stroke: "R", thumb_chord: "", right_stroke: "RGS", text: "konnna" }   #こんな
+  - { left_stroke: "R", thumb_chord: "", right_stroke: "RBS", text: "kotira" }   #こちら
+  - { left_stroke: "R", thumb_chord: "", right_stroke: "RS", text: "koko" }   #ここ
+  - { left_stroke: "R", thumb_chord: "", right_stroke: "BS", text: "koltuti" }   #こっち
+  
+
+  - { left_stroke: "S", thumb_chord: "", right_stroke: "GS", text: "sore" }   #それ
+  - { left_stroke: "S", thumb_chord: "", right_stroke: "BGS", text: "sono" }   #その
+  - { left_stroke: "S", thumb_chord: "", right_stroke: "RGS", text: "sonnna" }   #そんな
+  - { left_stroke: "S", thumb_chord: "", right_stroke: "RBS", text: "sotira" }   #そちら
+  - { left_stroke: "S", thumb_chord: "", right_stroke: "RS", text: "soko" }   #そこ
+  - { left_stroke: "S", thumb_chord: "", right_stroke: "BS", text: "soltuti" }   #そっち
+
+  - { left_stroke: "KR", thumb_chord: "", right_stroke: "GS", text: "dore" }   #どれ
+  - { left_stroke: "KR", thumb_chord: "", right_stroke: "BGS", text: "dono" }   #どの
+  - { left_stroke: "KR", thumb_chord: "", right_stroke: "RGS", text: "donnna" }   #どんな
+  - { left_stroke: "KR", thumb_chord: "", right_stroke: "RBS", text: "dotira" }   #どちら
+  - { left_stroke: "KR", thumb_chord: "", right_stroke: "RS", text: "doko" }   #どこ
+  - { left_stroke: "KR", thumb_chord: "", right_stroke: "BS", text: "doltuti" }   #どっち

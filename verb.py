@@ -17,6 +17,49 @@ def load_yaml(path: str):
     with open(path, "r", encoding="utf-8") as f:
         return yaml.safe_load(f)
 
+def build_stroke(left_stroke: str = "", thumb_chord: str = "", right_stroke: str = "") -> str:
+    """
+    Plover 用ストローク組み立て（verb/particle と同じルール）:
+    左: 左手子音 + 左親指, 右: 右親指 + 右手子音
+    例: left="R", thumb="AO", right="GS" -> "RA-O G S" 相当の "RA-O" 形式
+    """
+    left_thumb_part: list[str] = []
+    right_thumb_part: list[str] = []
+
+    for ch in str(thumb_chord):
+        if ch in LEFT_THUMB_KEYS:
+            left_thumb_part.append(ch)
+        elif ch in RIGHT_THUMB_KEYS:
+            right_thumb_part.append(ch)
+        elif ch:
+            raise ValueError(f"Unexpected thumb char in abbreviation stroke: {ch}")
+
+    left = f"{left_stroke}{''.join(left_thumb_part)}"
+    right = f"{''.join(right_thumb_part)}{right_stroke}"
+    return f"{left}-{right}" if left or right else ""
+
+def generate_abbreviation_dictionary():
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    rules_dir = os.path.join(base_dir, "rules")
+    abbreviations_cfg = load_yaml(os.path.join(rules_dir, "abbreviations.yaml")) or {}
+    entries = abbreviations_cfg.get("entries", [])
+
+    output_data = {}
+    for info in entries:
+        stroke = info.get("stroke")
+        if not stroke:
+            stroke = build_stroke(
+                left_stroke=info.get("left_stroke", ""),
+                thumb_chord=info.get("thumb_chord", ""),
+                right_stroke=info.get("right_stroke", ""),
+            )
+        text = info.get("text", "")
+        if not stroke or not text:
+            continue
+        output_data[stroke] = f"{{^{text}^}}"
+
+    return output_data
+
 def generate_dictionary():
     base_dir = os.path.dirname(os.path.abspath(__file__))
     rules_dir = os.path.join(base_dir, "rules")
@@ -123,7 +166,7 @@ def generate_dictionary():
             for thumb_chord, romaji in bindings.items():
                 if not romaji:
                     continue
-                stroke = phrase_conjugator.build_stroke_key(left_stroke, thumb_chord, right_stroke)
+                stroke = build_stroke(left_stroke, thumb_chord, right_stroke)
                 output_data[stroke] = f"{{^{romaji}^}}"
 
     return output_data
@@ -140,9 +183,12 @@ def save_as_json(data, file_path):
         print(f"❌ An error occurred while saving the file: {e}")
 
 if __name__ == "__main__":
-    output_data = generate_dictionary()
-    
-    # Save slightly differently named purely to verify parity before swapping
-    output_file_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "verb.json"))
-    save_as_json(output_data, output_file_path)
-    print(f"Generated data to {output_file_path}")
+    verb_output_data = generate_dictionary()
+    verb_output_file_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "verb.json"))
+    save_as_json(verb_output_data, verb_output_file_path)
+    print(f"Generated data to {verb_output_file_path}")
+
+    abbreviation_output_data = generate_abbreviation_dictionary()
+    abbreviation_output_file_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "abbreviation.json"))
+    save_as_json(abbreviation_output_data, abbreviation_output_file_path)
+    print(f"Generated data to {abbreviation_output_file_path}")
