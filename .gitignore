@@ -8,3 +8,8 @@ src/conjugators/__pycache__/
 src/generator.py
 kihon.py
 karas_command.json
+# 旧版の残骸（リポジトリ管理外）
+generator.py
+verb_new.json
+verb_old.json
+verb_rules.yaml
